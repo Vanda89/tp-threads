@@ -10,23 +10,20 @@ public class App
     {
         Race race = new Race(4);
 
-        Animal turtle = new Animal("Tortue", "🐢",  race);
-        Thread t1 = new Thread(turtle, "TurtleThread");
+
+        Thread t1 = new Thread(new Turtle(race));
         t1.start();
 
-        Animal rabbit = new Animal("Lapin", "🐇" , race);
-        Thread t2 = new Thread(rabbit, "RabbitThread");
+        Thread t2 = new Thread(new Rabbit(race));
         t2.start();
 
-        Animal duck = new Animal("Canard", "🪿", race);
-        Thread t3 = new Thread(duck, "DuckThread");
+
+        Thread t3 = new Thread(new Duck(race));
         t3.start();
 
-        Animal pig = new Animal("Cochon", "🐖", race);
-        Thread t4 = new Thread(pig, "PigThread");
+        Thread t4 = new Thread(new Pig(race));
         t4.start();
 
-        System.out.println();
 
 
     }
