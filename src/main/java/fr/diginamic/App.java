@@ -24,7 +24,8 @@ public class App
         Thread t4 = new Thread(new Pig(race));
         t4.start();
 
-
+        Thread arbiterThread = new Thread(new Arbiter(race));
+        arbiterThread.start();
 
     }
 }

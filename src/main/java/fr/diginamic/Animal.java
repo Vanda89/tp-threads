@@ -24,7 +24,12 @@ public abstract sealed class Animal implements Runnable permits Turtle, Rabbit, 
         Random rand = new Random();
         while (position < totalDistance) {
             position += step();
-            System.out.printf("%s : %s%s%n", getClass().getSimpleName(), "-".repeat(Math.min(position, totalDistance)), emoji);
+            position = Math.min(position, totalDistance);
+
+            race.updatePosition(getClass().getSimpleName(), position);
+
+            System.out.printf("%s : %s%s%n", getClass().getSimpleName(), "-".repeat(position), emoji);
+
             try {
                 Thread.sleep(rand.nextInt(200) + sleepTime());
             } catch (InterruptedException e) {
